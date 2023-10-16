@@ -1,0 +1,5 @@
+16:16:57.309 [Test worker] ERROR i.g.bonigarcia.wdm.online.HttpClient - Error HTTP 404 executing https://chromedriver.storage.googleapis.com/LATEST_RELEASE_115
+16:16:57.313 [Test worker] WARN  i.g.b.wdm.versions.VersionDetector - Exception reading https://chromedriver.storage.googleapis.com/LATEST_RELEASE_115 to get latest version of chromedriver (Error HTTP 404 executing https://chromedriver.storage.googleapis.com/LATEST_RELEASE_115)
+16:16:57.425 [Test worker] INFO  i.g.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as C:\Users\ASUS\.cache\selenium\chromedriver\win32\114.0.5735.90\chromedriver.exe
+16:17:06.285 [Test worker] INFO  app.execution.configs.configMFC - Start test ++++++++m.getName() :loginTestValid
+16:17:06.285 [Test worker] INFO  app.execution.configs.configMFC - Test worker

@@ -1,0 +1,51 @@
+steps to run tests
+
+
+1. Open build.gradle in the rootProject = 'autotests'
+
+2. Set suites project.property(property name from gradle.properties) to use suites from xml files -> autotests/src/test/resources/testng***.xml
+
+	-suites project.property (testSuites.MFC) for running test only for MFC
+						or
+	-suites project.property (testSuites.INV) for running test only for INV
+						or
+	-suites project.property (testSuites.EST) for running test only for EST
+						or
+	-suites project.property (testSuites.MFC_INV_EST) for running test for all Apps
+
+	!!! Appium need to run for mobile tests, so if you want to test only web mfc you need to use test suit without mobile tests
+	otherwise build will be failed without Appium
+		example:
+			test {
+				useTestNG {
+				useDefaultListeners = true
+				suites project.property(testSuites.MFC)
+				}
+			}
+
+                                                    2.1. (these steps aren't mandatory)
+                                                    Create customs run configuration to use test's suites and to create test report in the custom's folder
+                                                    2.1.1. Open run configuration -> Main menu/Run/Edit Configuration...
+                                                    2.1.2. Click on th "+" button
+                                                    2.1.3. Select TestNG
+                                                    2.1.4. Set Name, for example, "mfc_tests"
+                                                    2.1.5. Select Suite in the Test kind field
+                                                    2.1.6. Select file in the Suite filed
+                                                    2.1.7. Set path in the Output directoty to generate test report
+                                                    2.1.8. Open Listeners tab and click on the "+" button
+                                                    2.1.9. Select org.testng.reporters.EmailableReporter
+                                                    2.1.10. Click Apply button then Ok button
+                                                    !!! Now you can
+
+
+3. Set following values in the configMFC class -> autotests/src/test/app.execution.configs:
+	-TestDate, for example "08-08-2023"
+	-Version.prodaction or Version.development in the new ApplicationManager object
+	-List of languages in the new DataProviders(lang,TestDate) object, for example, set value=allLang for tesing MFC with all languages
+	-in the setUp() method set user and password according to Version.prodaction or Version.development
+
+4. Set following values in the configINV class -> autotests/src/test/app.execution.configs:
+	-path in the appBuild, for example, String appBuild="C:\\Tools\\VoxmeInventory-v18.0_Build_730.apk"
+	-set DeviceModel.capabilitiesTabletLenovo in the new ApplicationManagerInv object
+	!!! DeviceModel.capabilities*** is set path for writting values from file with capabilities for device.
+	!!! Create a new file with the capabilities of your device in the inventory/src/main/resources/ if not file for it in this folder

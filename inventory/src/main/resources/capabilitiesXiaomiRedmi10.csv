@@ -1,0 +1,7 @@
+﻿platformName:Android
+deviceName:132825d10505
+platformVersion:12.0
+appPackage:com.voxme.inventory.tablet
+appActivity:com.voxme.inventory.ui.StartupActivity
+noReset:true
+app:C:\\Tools\\VoxmeInventory-v18.0_Build_730.apk

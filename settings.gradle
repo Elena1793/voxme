@@ -1,0 +1,5 @@
+rootProject.name = 'autotests_mfc_inv_est'
+include 'mfc'
+include 'inventory'
+include 'estimator'
+

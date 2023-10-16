@@ -1,0 +1,53 @@
+plugins {
+    id 'java'
+
+}
+compileJava {options.encoding = "UTF-8"}
+compileTestJava {options.encoding = "UTF-8"}
+javadoc {options.encoding = "UTF-8"}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.seleniumhq.selenium:selenium-java:3.10.0'
+    implementation 'io.appium:java-client:7.3.0'
+    implementation 'org.testng:testng:7.1.0'
+    implementation 'ch.qos.logback:logback-classic:1.2.3'
+    //implementation 'com.android.support:support-core-utils:28.0.0'
+    implementation project (':mfc')
+    implementation project (':inventory')
+    implementation 'io.github.bonigarcia:webdrivermanager:5.0.3'
+    implementation 'org.jetbrains:annotations:23.0.0'/*dependencies to update your ChromeDriver to the latest version
+This will add the latest version of WebDriverManager to your test implementation configuration.
+In your test code, add this line before creating a ChromeDriver instance:
+WebDriverManager.chromedriver().setup();
+This will download and set up the latest version of ChromeDriver for you.*/
+
+    compileJava.options.encoding='UTF-8'
+}
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+interface testSuites {
+    String MFC_INV_EST ='ALLtestSuitesPath';
+    String MFC ='MFCtestSuitesPath';
+    String INV ='INVtestSuitesPath';
+    String EST ='ESTtestSuitesPath';
+}
+test {
+    useTestNG {
+        useDefaultListeners = true
+        suites project.property(testSuites.MFC)
+
+/*Set suites project.property(property name from gradle.properties) to use suite SYSTEM "https://testng.org/testng-1.0.dtd"
+for run tests according test suites in xml files testng***.xml.
+Appium need to run for mobile tests, so if you want to test only web mfc you need to use test suit without mobile tests
+otherwise build will be failed without Appium*/
+    }
+}

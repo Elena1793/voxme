@@ -1,0 +1,37 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="RegressionTests" verbose="1" >
+    <test name="mfc" >
+        <classes>
+            <class name="app.execution.tests.mfc.CreateFileTests" />
+            <class name="app.execution.tests.mfc.QutationTests" />
+            <class name="app.execution.tests.mfc.Survey_Test" />
+            <class name="app.execution.tests.mfc.SurveyInventory" />
+            <class name="app.execution.tests.mfc.Pickup" />
+            <class name="app.execution.tests.mfc.Delivery" />
+            <class name="app.execution.tests.mfc.PickupFromTerminal" />
+            <class name="app.execution.tests.mfc.DeliveryToTerminal" />
+            <class name="app.execution.tests.mfc.WarehouseReceiveIn" />
+            <class name="app.execution.tests.mfc.WarehouseOutload" />
+            <class name="app.execution.tests.mfc.BoxDelivery" />
+            <class name="app.execution.tests.mfc.OnSite" />
+            <class name="app.execution.tests.mfc.Relo" />
+            <class name="app.execution.tests.mfc.ShipmentsTests" />
+            <class name="app.execution.tests.mfc.Inventory" />
+            <class name="app.execution.tests.mfc.CheckMenu" />
+
+        </classes>
+    </test>
+    <test name="Inventory" >
+        <classes>
+            <class name="app.execution.tests.inventory.OpenAppTest" />
+            <class name="app.execution.tests.inventory.UserRegistrationTest" />
+            <class name="app.execution.tests.inventory.DownloadInventoryTest" />
+            <class name="app.execution.tests.inventory.SignAndSendTest" />
+            <class name="app.execution.tests.inventory.UploadInventoryTest" />
+            <class name="app.execution.tests.inventory.CheckInventoryTest" />
+            <class name="app.execution.tests.inventory.CreateInventoryTest" />
+
+        </classes>
+    </test>
+</suite>
